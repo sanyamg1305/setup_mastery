@@ -1,0 +1,7 @@
+name = "setupmastery"
+compatibility_date = "2025-12-12"
+
+# Tell wrangler where the static site output is
+[site]
+bucket = "./dist"
+entry-point = "workers-site"
