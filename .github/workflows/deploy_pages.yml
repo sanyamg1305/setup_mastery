@@ -25,8 +25,8 @@ jobs:
 
       - name: Publish to Cloudflare Pages
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-          ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: |
-          # use npx so we don't need a global wrangler install
+          # publish the static ./dist to Pages (no worker entrypoint required)
           npx wrangler@latest pages publish ./dist --project-name setupmastery --branch main
