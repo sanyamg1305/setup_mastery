@@ -1,8 +1,10 @@
+@'
 ---
-layout: ../layouts/BaseLayout.astro
-title: Best-of - SetupMastery
+layout: "../../layouts/BaseLayout.astro"
+title: "Best-of - SetupMastery"
 ---
 <div class="container">
   <h1>Best-of Roundups</h1>
   <p class="card">Roundups and "best X for Y" articles.</p>
 </div>
+'@ | Set-Content -Path src/pages/category/best.astro -Encoding utf8
