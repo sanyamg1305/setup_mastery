@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+﻿name: Deploy to Cloudflare Pages
 
 on:
   push:
@@ -9,7 +9,8 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -27,5 +28,5 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: |
-          npm install -g @cloudflare/wrangler
-          npx wrangler pages publish ./dist --project-name setupmastery --branch main
+          # use npx so we don't need a global wrangler install
+          npx wrangler@latest pages publish ./dist --project-name setupmastery --branch main
